@@ -1,0 +1,6 @@
+stages:
+  evaluate:
+    cmd: python main.py --eval
+    metrics:
+      - metrics.json:
+          cache: false

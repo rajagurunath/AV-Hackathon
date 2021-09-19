@@ -1,0 +1,8 @@
+schema: '2.0'
+stages:
+  evaluate:
+    cmd: python main.py --eval
+    outs:
+    - path: metrics.json
+      md5: 3d315c282bda21de338e6d8d1fedfc2d
+      size: 150
