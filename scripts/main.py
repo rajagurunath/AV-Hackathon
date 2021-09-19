@@ -82,7 +82,7 @@ def main(eval:bool=False,plot_eval:bool=False):
         metrics_df = pd.DataFrame([metrics_json]).T.reset_index()
         metrics_df.columns = ['entities',"error"]
         print(metrics_df)
-        metrics_df.to_markdown("report.md")
+        metrics_df.to_markdown(open("report.md","w"))
         import seaborn as sns
         import matplotlib.pyplot as plt
         sns.set_color_codes("dark")
