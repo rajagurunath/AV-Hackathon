@@ -19,8 +19,7 @@
 [Github Location ](https://github.com/rajagurunath/AV-Hackathon)
 
 
-### TODO:
-
+## MLOps
 - Added Github Action for Evaluating and Training the models
 - Produces Reports
 - Create Experiments using new feature branch
