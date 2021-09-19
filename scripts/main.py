@@ -77,7 +77,7 @@ def main(eval:bool=False,plot_eval:bool=False):
         metrics_json = {}
         for err in track_error:
             key,value = err
-            metrics_json[key] = value
+            metrics_json[key] = value *10000000000 # To show metrics in pull request otherwise it will show 0.0
         json.dump(metrics_json,open("metrics.json","w"))
         metrics_df = pd.DataFrame([metrics_json]).T.reset_index()
         metrics_df.columns = ['entities',"error"]
