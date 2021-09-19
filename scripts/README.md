@@ -21,7 +21,14 @@
 
 ### TODO:
 
-- Planning to implement MLOPS using github action for the above github repo
+- Added Github Action for Evaluating and Training the models
+- Produces Reports
+- Create Experiments using new feature branch
+- Trains, Evaluates and produces the reports
+- Can compare Reports across features
 
 
+Please do visit the [Github Location ](https://github.com/rajagurunath/AV-Hackathon), for more information!
+
+Happy to get feedback/Suggestion
 
