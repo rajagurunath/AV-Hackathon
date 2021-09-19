@@ -79,6 +79,18 @@ def main(eval:bool=False,plot_eval:bool=False):
             key,value = err
             metrics_json[key] = value
         json.dump(metrics_json,open("metrics.json","w"))
+        metrics_df = pd.DataFrame([metrics_json]).T.reset_index()
+        metrics_df.columns = ['entities',"error"]
+        print(metrics_df)
+        import seaborn as sns
+        import matplotlib.pyplot as plt
+        sns.set_color_codes("dark")
+        ax = sns.barplot(x="entities",
+                         y='error',
+                         data=metrics_df,
+                         palette = "Greens_d")
+        ax.set(xlabel="entities", ylabel = "ERROR")
+        plt.savefig("score.png",dpi=80)
 
     else:
         model_blending_submission = model_blender.blend()
