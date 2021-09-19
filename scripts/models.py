@@ -65,9 +65,9 @@ class Ensembler(object):
             
             # logger.info(f"Trained with {df.columns}")
             
-            assert "Sales" not in df.columns, f"Dont cheat , Target should not \
-                                                be present in Training data \
-                                                {df.columns.tolist()}"
+            # assert "Sales" not in df.columns, f"Dont cheat , Target should not \
+            #                                     be present in Training data \
+            #                                     {df.columns.tolist()}"
 
             trained_model = _train(model,X=df,y=y,**kwargs)
             self.model_map[model_id] = trained_model
@@ -87,7 +87,7 @@ class Ensembler(object):
                 logger.debug(f"Applying Transformer {transformer.__name__}")
                 df = transformer(df,model_id=model_id)
             
-            logger.info(f"Prediction with {df.columns}")
+            # logger.info(f"Prediction with {df.columns}")
             preds = _prediction(self.model_map[model_id],df)
             total_prediction.append(
                 pd.DataFrame(
