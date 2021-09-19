@@ -13,9 +13,6 @@ jobs:
           pip install -r requirements.txt
           git fetch --prune
           cd scripts/
-          dvc repro 
-          dvc metrics diff --show-md main > report.md
-          # Add figure to the report
-          echo "## Validating results by region"
+          python main.py --eval
           cml-publish score.png --md >> report.md
           cml-send-comment report.md
