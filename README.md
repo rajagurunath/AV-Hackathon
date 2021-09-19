@@ -18,13 +18,16 @@
 
 [Github Location ](https://github.com/rajagurunath/AV-Hackathon)
 
-### MLOps
+## MLOps
 - Added Github Action for Evaluating and Training the models
 - Produces Reports
 - Create Experiments using new feature branch
 - Trains, Evaluates and produces the reports
 - Can compare Reports across features
 
+Workflow will be triggered for every push/pull_request, so please have look at the pull_requests and 
+[commits](https://github.com/rajagurunath/AV-Hackathon/commits/main)  for the various results across 
+experiments and models
 
 Happy to know your feedback/Suggestion
 
