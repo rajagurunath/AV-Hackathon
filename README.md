@@ -66,9 +66,7 @@ and packages
     
 As side note : Also tried `h2o`,`PyCaret`,`sktime`, `torch` (little bit) but again the lesson is spent more time on Data 🧱.
 
-### Please refer to following github (will be made public once the compition was completed) 
 
-[Github Location ](https://github.com/rajagurunath/AV-Hackathon)
 
 ### MLOps
 
@@ -83,7 +81,8 @@ building and comparig reports across branches in pull request.
 
 To view the example reports please have look at all the [pull request](https://github.com/rajagurunath/AV-Hackathon/pulls?q=) and [commit's history](https://github.com/rajagurunath/AV-Hackathon/commits/main)
 
-Once the setup was done, No other work other than experimenting with Data and Different Models and Hyperparameters
+Once the setup was done, No other work, other than experimenting with Data and Different Models 
+Hyperparameters and one more important thing `please experiment more with data here after` 🧱
 
 
 
