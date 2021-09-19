@@ -36,11 +36,7 @@ def _eval(model,X_test,y_test):
 
 def report_error(error,model_id,id_column):
     ERROR_METRIC.append([id_column,model_id,error])
-    with open("report2.md","w") as f:
-        f.write(tabulate(
-            ERROR_METRIC,
-            showindex=True
-        ))
+    pd.DataFrame(ERROR_METRIC).to_markdown(open("report2.md","w"))
 class Ensembler(object):
 
     def __init__(self,model_ids,model,model_params:dict={},
