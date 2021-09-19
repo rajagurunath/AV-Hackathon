@@ -1,4 +1,4 @@
-name: Hackathon
+name: Hackathon-Train
 on: [push]
 jobs:
   run:
