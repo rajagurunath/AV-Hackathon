@@ -16,3 +16,4 @@ jobs:
           python main.py --eval
           cml-publish score.png --md >> report.md
           cml-send-comment report.md
+          cml-send-comment report2.md

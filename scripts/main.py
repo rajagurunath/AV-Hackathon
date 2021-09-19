@@ -36,7 +36,7 @@ def main(eval:bool=False,plot_eval:bool=False):
         ids = train[id_column].unique().tolist()
         print(len(ids))
         model = make_ensemble(
-            model_to_fit = Ridge,
+            model_to_fit = CatBoostRegressor,
             model_ids=ids,
             model_params={},
             transformers = [get_datetime_features,basic_categorical_encoding],
@@ -77,11 +77,12 @@ def main(eval:bool=False,plot_eval:bool=False):
         metrics_json = {}
         for err in track_error:
             key,value = err
-            metrics_json[key] = value
+            metrics_json[key] = value # To show metrics in pull request otherwise it will show 0.0
         json.dump(metrics_json,open("metrics.json","w"))
         metrics_df = pd.DataFrame([metrics_json]).T.reset_index()
         metrics_df.columns = ['entities',"error"]
         print(metrics_df)
+        metrics_df.to_markdown(open("report.md","w"))
         import seaborn as sns
         import matplotlib.pyplot as plt
         sns.set_color_codes("dark")
