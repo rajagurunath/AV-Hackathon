@@ -19,11 +19,18 @@
 [Github Location ](https://github.com/rajagurunath/AV-Hackathon)
 
 ### MLOps
+
+Wanted to try [CML](https://cml.dev/) for long time used this hackathon as a chance to setup end to end training, 
+building and comparig reports across branches in pull request.
+
 - Added Github Action for Evaluating and Training the models
 - Produces Reports
 - Create Experiments using new feature branch
 - Trains, Evaluates and produces the reports
 - Can compare Reports across features
+
+Once the setup was done, No other work other than experimenting with Data and Different Models and Hyperparameters
+
 
 
 Happy to know your feedback/Suggestion
