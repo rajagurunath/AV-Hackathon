@@ -4,7 +4,7 @@ from loguru import logger
 from models import Ensembler,Blender
 from metrics import mean_squared_log_error
 from features import (get_datetime_features,basic_categorical_encoding,
-                     custom_label_binarizer)
+                     custom_label_binarizer,custom_label_encoder)
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import Lasso,Ridge,LinearRegression,RidgeCV
 from xgboost import XGBRegressor,XGBRFRegressor
@@ -36,10 +36,10 @@ def main(eval:bool=False,plot_eval:bool=False):
         ids = train[id_column].unique().tolist()
         print(len(ids))
         model = make_ensemble(
-            model_to_fit = CatBoostRegressor,
+            model_to_fit = Ridge,
             model_ids=ids,
             model_params={},
-            transformers = [get_datetime_features,basic_categorical_encoding],
+            transformers = [get_datetime_features,custom_label_encoder],
             id_column=id_column
         )
         print(model)

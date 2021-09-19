@@ -61,3 +61,14 @@ def custom_label_binarizer(df,**kwargs):
     return transf.fit_transform(X=df,model_id=model_id)
 
 
+def custom_label_encoder(df,**kwargs):
+    model_id = kwargs.pop("model_id",None)
+    if model_id is None:
+        logger.error("Please provide model_id for encoding the categorical columns")
+        raise Exception("Please provide model_id for encoding the categorical columns")
+    
+    categ = ["Store_Type","Location_Type","Region_Code","Holiday","Discount"]
+    # Encode Categorical Columns
+    le = LabelEncoder()
+    df[categ] = df[categ].apply(le.fit_transform)
+    return df
