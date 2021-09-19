@@ -29,6 +29,8 @@ building and comparig reports across branches in pull request.
 - Trains, Evaluates and produces the reports
 - Can compare Reports across features
 
+To view the example reports please have look at all the [pull request](https://github.com/rajagurunath/AV-Hackathon/pulls?q=) and [commit's history](https://github.com/rajagurunath/AV-Hackathon/commits/main)
+
 Once the setup was done, No other work other than experimenting with Data and Different Models and Hyperparameters
 
 
