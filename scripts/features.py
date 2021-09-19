@@ -3,7 +3,7 @@ from loguru import logger
 import pandas as pd
 import numpy as np
 from pandas.core.algorithms import mode
-from sklearn.preprocessing import LabelBinarizer,LabelEncoder
+from sklearn.preprocessing import LabelBinarizer,LabelEncoder,PolynomialFeatures
 
 TRANSFORMER = {}
 
@@ -72,3 +72,8 @@ def custom_label_encoder(df,**kwargs):
     le = LabelEncoder()
     df[categ] = df[categ].apply(le.fit_transform)
     return df
+
+def custom_polynomial_features(df,**kwargs):
+    pf = PolynomialFeatures()
+    res = pf.fit_transform(df)
+    return res 

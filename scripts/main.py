@@ -4,8 +4,10 @@ from loguru import logger
 from models import Ensembler,Blender
 from metrics import mean_squared_log_error
 from features import (get_datetime_features,basic_categorical_encoding,
-                     custom_label_binarizer,custom_label_encoder)
+                     custom_label_binarizer,custom_label_encoder,
+                     custom_polynomial_features)
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import (Lasso,Ridge,LinearRegression,
                                  RidgeCV,BayesianRidge,ARDRegression)
 from sklearn.neural_network import MLPRegressor
@@ -38,10 +40,10 @@ def main(eval:bool=False,plot_eval:bool=False):
         ids = train[id_column].unique().tolist()
         print(len(ids))
         model = make_ensemble(
-            model_to_fit = ARDRegression,
+            model_to_fit = LinearRegression,
             model_ids=ids,
             model_params={},
-            transformers = [get_datetime_features,basic_categorical_encoding],
+            transformers = [get_datetime_features,basic_categorical_encoding,custom_polynomial_features],
             id_column=id_column
         )
         print(model)
