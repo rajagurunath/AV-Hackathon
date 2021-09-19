@@ -64,7 +64,7 @@ unable to reduce the mean squared log error after some saturation point, which a
 with brick 🧱 concenrate more on data part instead of fancy algorithms
 and packages
     
-As side note : Also tried `h2o`,`PyCaret`,`sktime`, `torch` (little bit) but again the lesson is spent more time on Data 🧱.
+As side note : Also tried `h2o`,`PyCaret`,`sktime`, `torch` (little bit) in the notebooks, but again the lesson is spent more time on Data 🧱.
 
 
 
