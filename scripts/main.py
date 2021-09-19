@@ -36,7 +36,7 @@ def main(eval:bool=False,plot_eval:bool=False):
         ids = train[id_column].unique().tolist()
         print(len(ids))
         model = make_ensemble(
-            model_to_fit = Ridge,
+            model_to_fit = LGBMRegressor,
             model_ids=ids,
             model_params={},
             transformers = [get_datetime_features,basic_categorical_encoding],
