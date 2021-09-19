@@ -6,6 +6,9 @@ from logger import logger
 from eval import plot_eval
 from metrics import mean_squared_log_error
 import numpy as np
+from tabulate import tabulate
+
+ERROR_METRIC = []
 
 def _train(model,**kwargs):
     return model.fit(**kwargs)
@@ -31,6 +34,13 @@ def _eval(model,X_test,y_test):
     preds = np.where(preds<0,-preds,preds)
     return preds,mean_squared_log_error(y_test,preds)*1000
 
+def report_error(error,model_id,id_column):
+    ERROR_METRIC.append([id_column,model_id,error])
+    with open("report2.md","w") as f:
+        f.write(tabulate(
+            ERROR_METRIC,
+            showindex=True
+        ))
 class Ensembler(object):
 
     def __init__(self,model_ids,model,model_params:dict={},
@@ -118,6 +128,7 @@ class Ensembler(object):
                 logger.info(f"Score {score}")
             # eval
             preds,error = _eval(trained_model,X_test,y_test=y_test)
+            report_error(error,model_id,self.id_column)
             total_error +=error
             logger.error(f"Error for {self.id_column} {model_id} = {error}")
             if plot:
