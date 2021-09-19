@@ -14,6 +14,6 @@ jobs:
           git fetch --prune
           cd scripts/
           python main.py --eval
-          cml-publish score.png --md >> report.md
+          cml-publish score.png --md >> report3.md
           cml-send-comment report.md
           cml-send-comment report2.md

@@ -30,5 +30,5 @@
 
 Please do visit the [Github Location ](https://github.com/rajagurunath/AV-Hackathon), for more information!
 
-Happy to get feedback/Suggestion
+Happy to know your feedback/Suggestion
 
