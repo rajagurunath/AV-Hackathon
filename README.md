@@ -67,6 +67,11 @@ and packages
 As side note : Also tried `h2o`,`PyCaret`,`sktime`, `torch` (little bit) in the notebooks, but again the lesson is spent more time on Data 🧱.
 
 
+## Good News:
+
+- Inspite of concentrating only on Algorithm part and not much on Data part, got some 120th Rank on public leaderboard, 
+  and expected to have Rank in the range of above 200 in Private leaderboard, but to my surprise this code base managed to achieve 
+  **41th Rank** in [Private leaderboard](https://datahack.analyticsvidhya.com/contest/job-a-thon-september-2021/?utm_source=datahack&utm_medium=flashstrip&utm_campaign=jobathon#LeaderBoard) 🥳 🥳 🕺 (SomeWhat felt good)
 
 ### MLOps
 
