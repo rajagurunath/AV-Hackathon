@@ -7,6 +7,7 @@ from features import (get_datetime_features,basic_categorical_encoding,
                      custom_label_binarizer,custom_label_encoder,
                      custom_polynomial_features)
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import (Lasso,Ridge,LinearRegression,
                                  RidgeCV,BayesianRidge,ARDRegression)
@@ -40,7 +41,7 @@ def main(eval:bool=False,plot_eval:bool=False):
         ids = train[id_column].unique().tolist()
         print(len(ids))
         model = make_ensemble(
-            model_to_fit = LinearRegression,
+            model_to_fit = DecisionTreeRegressor,
             model_ids=ids,
             model_params={},
             transformers = [get_datetime_features,basic_categorical_encoding,custom_polynomial_features],
