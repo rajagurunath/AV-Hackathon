@@ -4,8 +4,10 @@ from loguru import logger
 from models import Ensembler,Blender,Combiner
 from metrics import mean_squared_log_error
 from features import (get_datetime_features,basic_categorical_encoding,
-                     custom_label_binarizer,custom_label_encoder)
+                     custom_label_binarizer,custom_label_encoder,
+                     custom_polynomial_features)
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import (Lasso,Ridge,LinearRegression,
                                  RidgeCV,BayesianRidge,ARDRegression,
                                  SGDRegressor)

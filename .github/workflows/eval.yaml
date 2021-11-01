@@ -1,5 +1,11 @@
 name: Hackathon-Eval
-on: [push,pull_request]
+on: 
+  push:
+    paths-ignore:
+      - '**/README.md'
+  pull_request:
+    paths-ignore:
+      - '**/README.md'
 jobs:
   run:
     runs-on: [ubuntu-latest]
@@ -16,4 +22,5 @@ jobs:
           python main.py --eval
           cml-publish score.png --md >> report3.md
           cml-send-comment report.md
+          cml-send-comment report3.md
           cml-send-comment report2.md

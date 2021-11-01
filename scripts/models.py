@@ -9,36 +9,9 @@ from eval import plot_eval
 from metrics import mean_squared_log_error
 import numpy as np
 from tabulate import tabulate
+from utils import (_train,_eval,_prediction,
+                    train_test_split,report_error)
 
-ERROR_METRIC = []
-
-def _train(model,**kwargs):
-    return model.fit(**kwargs)
-
-
-def _prediction(model,*args,**kwargs):
-    return model.predict(*args,**kwargs)
-
-def train_test_split(X,y):
-    split = int(len(X)*0.8)
-    X_train = X[:split]
-    y_train = y[:split]
-    X_test = X[split:]
-    y_test = y[split:]
-
-    return X_train,y_train,X_test,y_test
-
-
-def _eval(model,X_test,y_test):
-
-    preds = model.predict(X_test)
-    # print(preds)
-    preds = np.where(preds<0,-preds,preds)
-    return preds,mean_squared_log_error(y_test,preds)*1000
-
-def report_error(error,model_id,id_column):
-    ERROR_METRIC.append([id_column,model_id,error])
-    pd.DataFrame(ERROR_METRIC).to_markdown(open("report2.md","w"))
 class Ensembler(object):
 
     def __init__(self,model_ids,model,model_params:dict={},
@@ -67,9 +40,9 @@ class Ensembler(object):
             
             # logger.info(f"Trained with {df.columns}")
             
-            assert "Sales" not in df.columns, f"Dont cheat , Target should not \
-                                                be present in Training data \
-                                                {df.columns.tolist()}"
+            # assert "Sales" not in df.columns, f"Dont cheat , Target should not \
+            #                                     be present in Training data \
+            #                                     {df.columns.tolist()}"
 
             trained_model = _train(model,X=df,y=y,**kwargs)
             self.model_map[model_id] = trained_model
@@ -89,7 +62,7 @@ class Ensembler(object):
                 logger.debug(f"Applying Transformer {transformer.__name__}")
                 df = transformer(df,model_id=model_id)
             
-            logger.info(f"Prediction with {df.columns}")
+            # logger.info(f"Prediction with {df.columns}")
             preds = _prediction(self.model_map[model_id],df)
             total_prediction.append(
                 pd.DataFrame(
