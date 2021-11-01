@@ -76,7 +76,7 @@ As side note : Also tried `h2o`,`PyCaret`,`sktime`, `torch` (little bit) in the 
 ### MLOps
 
 Wanted to try [CML](https://cml.dev/) for long time used this hackathon as a chance to setup end to end training, 
-building and comparig reports across branches in pull request.
+building and comparing reports across branches in pull request.
 
 - Added Github Action for Evaluating and Training the models
 - Produces Reports
@@ -84,6 +84,9 @@ building and comparig reports across branches in pull request.
 - Trains, Evaluates and produces the reports
 - Can compare Reports across features
 
+
+experiments and models
+=======
 To view the example reports please have look at all the [pull request](https://github.com/rajagurunath/AV-Hackathon/pulls?q=) and [commit's history](https://github.com/rajagurunath/AV-Hackathon/commits/main)
 
 Once the setup was done, No other work, other than experimenting with Data and Different Models 

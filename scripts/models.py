@@ -1,4 +1,6 @@
 from logging import log
+from re import S
+from typing import Dict, List
 import pandas as pd
 from pandas.core import series
 from pandas.core.algorithms import mode
@@ -138,3 +140,35 @@ class Blender(object):
         res = series.to_frame(name="Sales")
         res["ID"]= blending_res.ID
         return res
+
+class Combiner(object):
+
+    def __init__(self,models:List,model_params:List[Dict]=[]) -> None:
+        self.models = models
+        self.model_params = model_params
+        self.trained_models = []
+        super().__init__()
+
+    def fit(self,X,y,**kwargs):
+
+        for idx,model in enumerate(self.models):
+            # if len(self.model_params)>=idx:
+            #     params = self.model_params[idx]
+            # else:
+            #     params = {}
+            mod = model()
+            mod.fit(X,y)
+            self.trained_models.append(mod)
+        return self
+
+    def predict(self,*args,**kwargs):
+        res = []
+        for idx,model in enumerate(self.trained_models):
+            mod_pred = model.predict(*args,**kwargs)
+            res.append(mod_pred)
+        print(np.vstack(res).T.shape)
+
+        return np.mean(np.vstack(res).T,axis=1)
+
+
+    
